@@ -15,7 +15,7 @@ from isodate import parse_duration
 st.set_page_config(layout="wide")
 
 #Connecting mongodb
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+myclient = pymongo.MongoClient(**st.secrets["mongo"])
 
 
 def get_channel_info(channel_id):
@@ -181,14 +181,12 @@ def mongodb_to_sql(ch_name):
         videos_df.to_sql(name=table3, con=engine, if_exists='append', index=False)
         comments_df.to_sql(name=table4, con=engine, if_exists='append', index=False)
         st.success("Migrated from MongoDB to MySQL")
+
+        # Close the database connection
+        engine.dispose()
+        mycollection.delete_one({'title': ch_name})
     except IntegrityError:
         st.error("Integrity error occurred. Some data already exists in MySQL.")
-
-    # Close the database connection
-    engine.dispose()
-    mycollection.delete_one({'title': ch_name})
-
-#def query_mysql(question):
 
 #Designing streamlit app
 
