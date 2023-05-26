@@ -7,12 +7,15 @@ Once migrated we can do some Queries from MySQL DB
 2.Enter Youtube Channel ID to get the details <br/>
 3.Once Search button is clicked, the script will fetch the details from Youtube API and store the details in a dictionary. <br/>
 4.The data will be displayed in json format in Streamlit App <br/>
-5.We can load the data into MongoDB as a single document in a collection
+5.We can load the data into MongoDB as a single document in a collection which was already created in MongoDB<br/>
 6.Once loaded, a success message will be displayed
 ## MongoDB to MYSQL DB
 1.In the second tab, a drop down will be displayed with the channel names whatever available in the MongoDB<br/>
 2.We can select a channel and migrate it to MySQL<br/>
-3.Once migrated, a success message will be displayed
+3.Details fetched from MongoDB will be kept in separate dataframes like channel_df, playlists_df,videos_df and comments_df.<br/>
+4.From dataframe we will be inserting the data into MySQL.
+Please note there should be schemas created already in MySQL to append the data<br/>
+5.Once data is migrated, a success message will be displayed.
 ## SQL Query
 1.In the third tab, a drop down will be displayed with set of questions related to the data in the MySQL tables(channel_details,playlist_details,video_details,comment_details).<br/>
-2.Any one of the question is selected and "Go" button is clicked, result will be displayed in table format in streamlit App
+2.If any one of the question is selected and "Go" button is clicked, result will be displayed in table format in streamlit App.
