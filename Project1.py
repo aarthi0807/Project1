@@ -15,7 +15,7 @@ from isodate import parse_duration
 st.set_page_config(layout="wide")
 
 #Connecting mongodb
-myclient = pymongo.MongoClient(**st.secrets["mongo"])
+myclient = pymongo.MongoClient(st.secrets["atlas_connection_string"])
 
 
 def get_channel_info(channel_id):
