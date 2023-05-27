@@ -167,7 +167,7 @@ def mongodb_to_sql(ch_name):
     # st.dataframe(comments_df)
 
     # Connect to MySQL
-    engine = create_engine('mysql+pymysql://root:1234@localhost/youtube_db')
+    engine = create_engine(st.secrets["mysql_connection_string"])
 
     table1 = 'channel_details'
     table2 = 'playlist_details'
@@ -264,12 +264,7 @@ with tab3:
     question = st.selectbox('Lets find something..!',(ques1,ques2,ques3,ques4,ques5,ques6,ques7,ques8,ques9,ques10))
     clicked4 = st.button("Go..")
     if clicked4:
-        mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="1234",
-        database="youtube_db"
-        )
+        mydb = mysql.connector.connect(**st.secrets["mysql"])
         cursor = mydb.cursor()
 
         if question == ques1:
