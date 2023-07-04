@@ -19,3 +19,4 @@ Please note there should be schemas created already in MySQL to append the data<
 ## SQL Query
 1.In the third tab, a drop down will be displayed with set of questions related to the data in the MySQL tables(channel_details,playlist_details,video_details,comment_details).<br/>
 2.If any one of the question is selected and "Go" button is clicked, result will be displayed in table format in streamlit App.
+# Streamlit App URL: https://aarthi0807-youtube-data-harvesting-and-warehous-project1-mv1x6g.streamlit.app/ 
