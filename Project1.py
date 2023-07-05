@@ -167,7 +167,7 @@ def mongodb_to_sql(ch_name):
     # st.dataframe(comments_df)
 
     # Connect to MySQL
-    engine = create_engine(st.secrets["mysql_connection_string"])
+    engine = create_engine("mysql+pymysql://",creator=lambda: pymysql.connect(**st.secrets["mysql"]))
 
     table1 = 'channel_details'
     table2 = 'playlist_details'
